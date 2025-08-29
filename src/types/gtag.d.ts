@@ -7,10 +7,10 @@ declare global {
         page_title?: string;
         page_location?: string;
         custom_map?: { [key: string]: string };
-        [key: string]: any;
+        [key: string]: unknown;
       }
     ) => void;
-    dataLayer: any[];
+    dataLayer: unknown[];
   }
 }
 
