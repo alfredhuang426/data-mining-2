@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* 引入 Hooey-demo 字體 */
+@font-face {
+  font-family: 'HooeyDemo';
+  src: url('/hooey-demo/HooeyDEMO-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
