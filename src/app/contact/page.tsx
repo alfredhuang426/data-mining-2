@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { event } from '@/lib/gtag';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,14 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // 追蹤表單提交事件
+    event({
+      action: 'form_submit',
+      category: 'engagement',
+      label: 'contact_form',
+    });
+    
     // 這裡可以添加表單提交邏輯
     alert('感謝您的訊息！我們會盡快回覆您。');
     setFormData({ name: '', email: '', subject: '', message: '' });
