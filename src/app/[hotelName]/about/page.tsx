@@ -1,6 +1,15 @@
+'use client';
 import Link from 'next/link';
+import { event } from '@/lib/gtag';
 
 export default function About() {
+  const handleButtonClick = (buttonName: string) => {
+    event({
+      action: 'button_click',
+      category: 'engagement',
+      label: `about_${buttonName}`,
+    });
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
       <div className="container mx-auto px-6 py-16">
@@ -55,8 +64,24 @@ export default function About() {
           </div>
         </div>
 
+        <div className='flex justify-center space-x-6 my-16'>
+          <button
+            onClick={() => handleButtonClick('Alfred_01')}
+            className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          >
+            發送訊息to Alfred_01
+          </button>
+
+          <button
+            className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+            onClick={() => handleButtonClick('Emily_02')}
+          >
+            發送訊息to Emily_02
+          </button>
+        </div>
+
         <div className="text-center mt-16">
-          <Link 
+          <Link
             href="/"
             className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
           >

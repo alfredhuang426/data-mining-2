@@ -23,13 +23,13 @@ export default function Home() {
         {/* 導航連結 */}
         <div className="flex justify-center space-x-6">
           <Link 
-            href="/about"
+            href="/Alfred_01/about"
             className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
           >
             關於我們
           </Link>
           <Link 
-            href="/contact"
+            href="/Emily_02/contact"
             className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
           >
             聯絡我們
