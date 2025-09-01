@@ -86,9 +86,9 @@ export default function About() {
           </button>
           <button
             className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
-            onClick={() => handleButtonClick('Emily_02', '201')}
+            onClick={() => handleButtonClick('Emily_02', '202')}
           >
-            發送訊息to Emily_02 201
+            發送訊息to Emily_02 202
           </button>
         </div>
 
