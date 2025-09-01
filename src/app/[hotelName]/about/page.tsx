@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { event } from '@/lib/gtag';
 
 export default function About() {
-  const handleButtonClick = (buttonName: string) => {
+  const handleButtonClick = (buttonName: string, room: string) => {
     event({
       action: 'button_click',
       category: 'engagement',
       label: `about_${buttonName}`,
+      room: room,
     });
   };
   return (
@@ -66,17 +67,28 @@ export default function About() {
 
         <div className='flex justify-center space-x-6 my-16'>
           <button
-            onClick={() => handleButtonClick('Alfred_01')}
+            onClick={() => handleButtonClick('Alfred_01', '101')}
             className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
           >
-            發送訊息to Alfred_01
+            發送訊息to Alfred_01 101
           </button>
-
+          <button
+            onClick={() => handleButtonClick('Alfred_01', '102')}
+            className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          >
+            發送訊息to Alfred_01 102
+          </button>
+          <button
+            onClick={() => handleButtonClick('Emily_02', '201')}
+            className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          >
+            發送訊息to Emily_02 201
+          </button>
           <button
             className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
-            onClick={() => handleButtonClick('Emily_02')}
+            onClick={() => handleButtonClick('Emily_02', '201')}
           >
-            發送訊息to Emily_02
+            發送訊息to Emily_02 201
           </button>
         </div>
 
