@@ -29,7 +29,7 @@ export default function Home() {
     if (testId) {
       console.log('設置 test_id:', testId);
       window.gtag('set', 'user_properties', {
-        test_id: testId
+        room: testId
       });
     }
   }, [testId]);
