@@ -1,9 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useGtag } from '../hooks/useGtag';
 
 export default function Home() {
   const [testId, setTestId] = useState<string | null>(null);
+  const { isGtagLoaded } = useGtag();
 
   useEffect(() => {
     // 檢查 sessionStorage 中是否已有 test_id
@@ -26,13 +28,27 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (testId) {
+    const getClientId = async() => {
+      const clientIdPromise = await new Promise(resolve => {
+        window.gtag('get', 'G-6ZDY30PQ37', 'client_id', resolve)
+      });
+      console.log('client_id:', clientIdPromise);
+    };
+    if (testId && isGtagLoaded) {
       console.log('設置 test_id:', testId);
       window.gtag('set', 'user_properties', {
         room: testId
       });
-    }
-  }, [testId]);
+      getClientId();
+    } else {
+      if (!isGtagLoaded) {
+        console.log('window.gtag:', window.gtag);
+        console.log('gtag 尚未載入，無法設置 test_id:', testId);
+      } else {
+        console.log('test_id 不存在，無法設置 test_id:', testId);
+      }
+    } 
+  }, [testId, isGtagLoaded]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
