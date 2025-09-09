@@ -8,6 +8,14 @@ export default function About() {
       action: 'button_click',
       category: 'engagement',
       label: `about_${buttonName}`,
+      value: {
+        value_buttonName: buttonName,
+        value_room: room,
+        value_nest: {
+          value_nest_buttonName: buttonName,
+          value_nest_room: room,
+        }
+      },
       room: room,
     });
   };

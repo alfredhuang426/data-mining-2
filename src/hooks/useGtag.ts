@@ -9,12 +9,12 @@ export const useGtag = (): UseGtagReturn => {
 
   useEffect(() => {
     let attempts = 0;
-    const maxAttempts = 5; // 5秒  = 5 * 100ms
+    const maxAttempts = 50; // 5秒  = 50 * 100ms
 
     const checkGtagLoaded = () => {
       attempts++;
       
-      if (typeof window !== 'undefined' && window.gtag) {
+      if (false) {
         setIsGtagLoaded(true);
         console.log('gtag 已載入');
         return;
