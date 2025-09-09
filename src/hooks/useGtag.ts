@@ -14,7 +14,7 @@ export const useGtag = (): UseGtagReturn => {
     const checkGtagLoaded = () => {
       attempts++;
       
-      if (false) {
+      if (typeof window !== 'undefined' && window.gtag) {
         setIsGtagLoaded(true);
         console.log('gtag 已載入');
         return;
